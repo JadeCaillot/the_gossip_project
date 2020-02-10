@@ -1,0 +1,22 @@
+<html>
+
+  <head>
+    <title>The Gossip Project</title>
+  </head>
+
+  <body>
+    <h1>Bienvenue <%=params["first_name"]%> sur le site du Gossip Project</h1><br><br>
+
+    <p>Voici la liste de tous les potins</p><br>
+    <% @gossips.all.each do |gossip|%><br><br>
+        Potin numéro <%= gossip.id %><br>
+        Titre : <%= gossip.title %><br>
+        Auteur : <%= gossip.user.first_name %><br>
+        Lien : <%= link_to "Cliquez ici", potin_id_path(@id=gossip.id) %>
+    <% end %>
+    
+    
+
+  </body>
+
+</html>

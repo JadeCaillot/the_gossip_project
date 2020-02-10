@@ -1,0 +1,19 @@
+<html>
+
+  <head>
+    <title>The Gossip Project</title>
+  </head>
+
+  <body>
+    <h1>Potin n°<%=params["id"]%></h1><br><br>
+
+    Titre du potin : <%= @gossip.title%><br>
+    Contenu du potin : <%= @gossip.content %><br>
+    Auteur du potin : <%= @gossip.user.first_name %><br>
+    Date de création du potin : <%= @gossip.created_at%><br>
+    
+    
+
+  </body>
+
+</html>

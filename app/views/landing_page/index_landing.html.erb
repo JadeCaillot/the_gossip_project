@@ -1,0 +1,19 @@
+<html>
+
+  <head>
+    <title>The Gossip Project</title>
+  </head>
+
+  <body>
+    <h1>Hello there! join our VIP section! Sign in and let's go </h1><br><br>
+    <form action="/", method="post">
+    Enter your first name
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+    <input type="text" name="first_name">
+    <input type="submit" value="come on in">
+    </form>
+       
+
+  </body>
+
+</html>
