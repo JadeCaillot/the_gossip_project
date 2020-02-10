@@ -5,14 +5,20 @@
   </head>
 
   <body>
-    <h1>Bienvenue <%=params["first_name"]%> sur le site du Gossip Project</h1><br><br>
+  <div class="jumbotron">
+    <h1 class="display-4">Bienvenue <%=params["first_name"]%> sur le site du Gossip Project</h1>
+  </div>
+    
 
-    <p>Voici la liste de tous les potins</p><br>
-    <% @gossips.all.each do |gossip|%><br><br>
-        Potin numéro <%= gossip.id %><br>
-        Titre : <%= gossip.title %><br>
-        Auteur : <%= gossip.user.first_name %><br>
-        Lien : <%= link_to "Cliquez ici", potin_id_path(@id=gossip.id) %>
+    <p class='text-center'>Voici la liste de tous les potins</p><br>
+    
+    <div class='card'>
+    <% @gossips.all.each do |gossip|%>
+      <div class='card-header'>Potin numéro<%= gossip.id %></div>
+      <div class='card-body'>
+        <h5 class='card-title'><%= gossip.title %></h5>
+        <h4 class='card-title'><%= gossip.user.first_name %></h4>
+        <%= link_to "Cliquez ici", potin_id_path(@id=gossip.id), :class=>'btn btn-primary'%>
     <% end %>
     
     
@@ -20,3 +26,4 @@
   </body>
 
 </html>
+

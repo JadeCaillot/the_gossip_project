@@ -1,0 +1,2 @@
+module AuteurPotinHelper
+end

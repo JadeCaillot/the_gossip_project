@@ -1,0 +1,25 @@
+<html>
+
+  <head>
+    <title>The Gossip Project</title>
+  </head>
+
+  <body>
+  <div class="jumbotron">
+  <h1 class="display-4">Bienvenue <%=params["first_name"]%> sur l'explorateur de gossipeurs</h1>
+  </div>
+  
+  <div class="card text-center">
+  <div class="card-header">Fiche identité n°<%=params['id']%></div>
+
+    <div class="card-body">
+    <h5 class="card-title"><%= @user.first_name%> <%= @user.last_name%></h5>
+    <p class="card-text">description : <%= @user.description %></p>
+    <div class="card-footer text-muted">Créé le <%= @user.created_at%> à <%= @user.city.name %></div>
+  </div>
+    
+    
+
+  </body>
+
+</html>

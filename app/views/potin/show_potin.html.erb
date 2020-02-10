@@ -5,12 +5,18 @@
   </head>
 
   <body>
-    <h1>Potin n°<%=params["id"]%></h1><br><br>
+   <div class="jumbotron">
+    <h1 class="display-4">Bienvenue sur l'explorateur de Gossips</h1>
+   </div>
+    <div class="card text-center">
+    <div class="card-header">Potin n°<%=params["id"]%></div> 
 
-    Titre du potin : <%= @gossip.title%><br>
-    Contenu du potin : <%= @gossip.content %><br>
-    Auteur du potin : <%= @gossip.user.first_name %><br>
-    Date de création du potin : <%= @gossip.created_at%><br>
+      <div class="card-body">
+        <h5 class="card-title">Titre du potin : <%= @gossip.title%></h5>
+        <p class="card-text">Contenu du potin : <%= @gossip.content %></p>
+        <%= link_to "#{@gossip.user.first_name}", user_id_path(@id = @gossip.user.id), :class=>'btn btn-secondary'%>
+      <div class="card-footer text-muted">Créé le <%= @gossip.created_at%></div>
+    </div>
     
     
 
