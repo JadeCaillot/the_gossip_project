@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'gossips/create'
   get "/team", to: "team#index_team"
   get "/contact", to: "contact#index_contact"
-  get "/", to:"landing_page#index_landing"
+  get "/landing", to:"landing_page#index_landing"
   post "/", to:"welcome#index_potins"
   get "/welcome/:first_name", to:"welcome#index_potins"
   root "welcome#index_potins"

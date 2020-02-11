@@ -7,17 +7,22 @@
     <div class="jumbotron">
       <h1 class="display-4">Vous voulez créer un potin ? Super !</h1>
     </div>
-    <%= form_tag gossips_path(@gossip.id) do %>
-      <%= label_tag 'Titre' %>
-      <%= text_field_tag 'gossip[title]', @gossip.title %>
-      <br />
-      <%= label_tag 'User_id' %>
-      <%= text_field_tag 'gossip[user_id]', @gossip.user_id %>
-      <br /> 
-      <%= label_tag 'Contenu' %>
-      <%= text_field_tag 'gossip[content]', @gossip.content %>
-      <br />       
-      <%= submit_tag 'Add Gossip' %>
-    <% end %>
+
+    <div class= 'container text-center'>
+        <%= form_tag(gossips_path, method: "post") do%>
+        <%= label_tag 'Titre' %>
+        <%= text_field_tag :title, @gossip.title %>
+        <br />
+        <%= label_tag 'User-id(1..10)' %>
+        <%= text_field_tag :user, @gossip.user%>
+        <br /> 
+        <%= label_tag 'Contenu' %>
+        <%= text_field_tag :content, @gossip.content %>
+        <br />       
+        <%= submit_tag 'Add Gossip' %>
+        <% end %>
+    </div>
   </body>
 </html>
+
+  

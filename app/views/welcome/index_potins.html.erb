@@ -5,16 +5,16 @@
   </head>
 
   <body>
-  <div class="jumbotron">
-    <h1 class="display-4">Bienvenue <%=params["first_name"]%> sur le site du Gossip Project</h1>
-  </div>
-    
-
-    <p class='text-center'>Voici la liste de tous les potins</p><br>
-     <%= link_to "Ajouter un gossip", new_gossip_path, :class=>"btn btn-secondary btn-lg active btn-center"%>
-     
+    <div class="jumbotron">
+      <h1 class="display-4">Bienvenue <%=params["first_name"]%> sur le site du Gossip Project</h1>
+    </div>
+      
+    <div class='container text-center'>
+      <p>Voici la liste de tous les potins</p><br>
+      <%= link_to "Ajouter un gossip", new_gossip_path, :class=>"btn btn-secondary btn-lg active "%>
+    </div>
     <div class='card'>
-    <% @gossips.all.each do |gossip|%>
+      <% @gossips.all.each do |gossip|%>
       <div class='card-header'>Potin numéro<%= gossip.id %></div>
       <div class='card-body'>
         <h5 class='card-title'><%= gossip.title %></h5>

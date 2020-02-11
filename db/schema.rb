@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2020_02_06_191709) do
     t.integer "age"
     t.string "email"
     t.text "description"
-    t.bigint "city_id"
+    t.integer "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_users_on_city_id"
