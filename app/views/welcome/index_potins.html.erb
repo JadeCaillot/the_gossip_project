@@ -11,7 +11,8 @@
     
 
     <p class='text-center'>Voici la liste de tous les potins</p><br>
-    
+     <%= link_to "Ajouter un gossip", new_gossip_path, :class=>"btn btn-secondary btn-lg active btn-center"%>
+     
     <div class='card'>
     <% @gossips.all.each do |gossip|%>
       <div class='card-header'>Potin numéro<%= gossip.id %></div>
