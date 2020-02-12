@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>The Gossip Project</title>
+  </head>
+
+  <body>
+    <div class="jumbotron">
+      <h1 class="display-4">Vous voulez modifier un potin ?</h1>
+    </div>
+
+    <div class= 'container text-center'>
+        <%= form_for @gossip do |f|%>
+        <label> 'Titre' </label>
+        <%= f.text_field :title, :class=>'form-control' %>
+        <br />
+        <%= label_tag 'Contenu' %>
+        <%= f.text_field :content, :class=>'form-control' %>
+        <br />       
+        <%= f.submit 'Update Gossip', :class=>'btn btn-secondary'%>
+        <% end %>
+    </div>
+  </body>
+</html>
+
+  

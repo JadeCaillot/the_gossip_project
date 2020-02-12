@@ -3,6 +3,7 @@ class CreateCities < ActiveRecord::Migration[5.2]
     create_table :cities do |t|
       t.string :name
       t.string :zip_code
+      t.references :gossip, index: :true
 
       t.timestamps
     end

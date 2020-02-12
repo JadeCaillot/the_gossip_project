@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>The Gossip Project</title>
+  </head>
+
+  <body>
+    <div class="jumbotron">
+      <h1 class="display-4">Création d'une ville</h1>
+    </div>
+
+    <div class= 'container text-center'>
+        <%= form_tag(cities_path, method: "post") do%>
+        <%= label_tag 'Nom' %>
+        <%= text_field_tag :name, @city.name %>
+        <br />
+        <%= label_tag 'Zip_code' %>
+        <%= text_field_tag :zip_code, @city.zip_code %>
+        <br />       
+        <%= submit_tag 'Ajouter la ville' %>
+        <% end %>
+    </div>
+  </body>
+</html>
+
+  

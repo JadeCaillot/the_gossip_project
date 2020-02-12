@@ -1,0 +1,33 @@
+<html>
+
+  <head>
+    <title>The Gossip Project</title>
+  </head>
+
+  <body>
+    <div class="jumbotron">
+      <h1 class="display-4">Bienvenue <%=params["first_name"]%> sur le site du Gossip Project</h1>
+    </div>
+      
+    <div class='container text-center'>
+      <p>Liste des villes</p><br>
+      <%= link_to "Ajouter une ville", new_city_path, :class=>"btn btn-secondary btn-lg active "%>
+    </div>
+    <div class='card'>
+        <% @cities.all.each do |city|%>
+            <div class='card-header'>Ville numéro<%= city.id %></div>
+            <div class='card-body'>
+                <h5 class='card-title'><%= city.name %></h5>
+                <h4 class='card-title'><%= city.zip_code %></h4>
+                <%= link_to "Découvrez les gossips associés", city_path(city.id), :class=>'btn btn-primary'%>
+                <%= link_to "edit", edit_city_path(city.id), :class=>'btn btn-default'%>
+            </div>
+        <% end %> 
+            
+    
+    
+
+  </body>
+
+</html>
+

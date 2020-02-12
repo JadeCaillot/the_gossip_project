@@ -14,8 +14,10 @@
 
     <div class="card-body">
     <h5 class="card-title"><%= @user.first_name%> <%= @user.last_name%></h5>
+    <p class="card-text">age : <%= @user.age %></p>
+    <p class="card-text">email : <%= @user.email %></p>
     <p class="card-text">description : <%= @user.description %></p>
-    <div class="card-footer text-muted">Créé le <%= @user.created_at%> à <%= @user.city.name %></div>
+    <div class="card-footer text-muted">Créé le <%= @user.created_at%> à <%= link_to "#{@user.city.name}", city_path(@user.city.id), :class=>'btn btn-light'%></div>
   </div>
     
     

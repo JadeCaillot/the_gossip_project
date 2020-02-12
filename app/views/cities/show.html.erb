@@ -1,0 +1,44 @@
+<html>
+
+  <head>
+    <title>The Gossip Project</title>
+  </head>
+
+  <body>
+        <div class="jumbotron">
+            <h1 class="display-4"> Explorateur de potins par ville</h1>
+        </div>
+
+        <div class="card text-center">
+        <div class="card-header">Ville n°<%=params[:id]%></div> 
+
+        <div class="card-body">
+            <h5 class="card-title">Ville : <%= @city.name%></h5>
+            <p class="card-text">Code postal: <%= @city.zip_code %></p>
+            <div class="card-footer text-muted">Créé le <%= @city.created_at%></div>
+        </div>
+
+     <h2 class='text-center'>Liste des potins</h2>
+      <% @gossips.all.each do |gossip|%>
+            <div class='card-header'>Gossip n°<%= gossip.id %></div>
+            <div class='card-body'>
+                <h5 class="card-title">Titre du potin : <%= gossip.title%></h5>
+                <p class="card-text">Contenu du potin : <%= gossip.content %></p>
+                <div class="card-footer text-muted">Créé le <%= gossip.created_at%></div>
+            </div>
+        <% end %> 
+
+        
+     
+     
+     
+     
+     
+     
+    
+    
+    
+    
+    </body>
+
+</html>

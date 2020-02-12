@@ -52,6 +52,8 @@ end
 10.times do
   CommentOfComment.create(user: User.all.sample, content: Faker::ChuckNorris.fact, comment: Comment.all.sample)
 end
+
+anonymous=User.create(first_name: "Anonymous", city: City.all.sample)
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #

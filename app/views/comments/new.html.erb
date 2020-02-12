@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>The Gossip Project</title>
+  </head>
+
+  <body>
+    <div class="jumbotron">
+      <h1 class="display-4">Ecris ton commentaire juste ici ! </h1>
+    </div>
+
+    <div class= 'container text-center'>
+        <%= form_tag(comments_path, method: "post") do%>
+            <%= label_tag 'Commentaire :' %>
+            <%= text_field_tag :content, @comment.content %>
+            <br />
+            <%= submit_tag 'Poster' %>
+        <% end %>
+    </div>
+  </body>
+</html>
+
+  
