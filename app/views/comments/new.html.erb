@@ -13,6 +13,9 @@
             <%= label_tag 'Commentaire :' %>
             <%= text_field_tag :content, @comment.content %>
             <br />
+            <%= label_tag 'Quel Gossip commentes-tu :' %>
+            <%= text_field_tag :gossip, @comment.gossip %>
+            <br />
             <%= submit_tag 'Poster' %>
         <% end %>
     </div>

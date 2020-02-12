@@ -21,6 +21,8 @@
         <h4 class='card-title'><%= gossip.user.first_name %></h4>
         <%= link_to "Découvrez le gossip", gossip_path(gossip.id), :class=>'btn btn-primary'%>
         <%= link_to "edit", edit_gossip_path(gossip.id), :class=>'btn btn-default'%>
+        <%= link_to("Supprimer", gossip_path(gossip.id), method: :delete, :class=>'btn btn-danger', data: { confirm: "êtes-vous sûr de vouloir supprimer ce gossip?" })%>
+         <h6 class="card-footer text-muted"><%= gossip.comments.count%> commentaires</h6>
       </div>
     <% end %>
     

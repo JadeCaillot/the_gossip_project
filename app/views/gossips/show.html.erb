@@ -16,19 +16,21 @@
         <p class="card-text">Contenu du potin : <%= @gossip.content %></p>
         <p class="card-text">Auteur: <%= link_to "#{@gossip.user.first_name}", user_id_path(@id = @gossip.user.id), :class=>'btn btn-primary bg-info'%></p>
       <div class="card-footer text-muted">Créé le <%= @gossip.created_at%></div>
-      <%= link_to("Supprimer", gossip_path, method: :delete, :class=>'btn btn-danger', data: { confirm: "êtes-vous sûr de vouloir supprimer ce gossip?" })%>
+  
 
     </div>
     
     <h2 class='text-center'>Commentaires</h2>
-     <%= link_to "Ajouter un commentaire", new_comment_path, :class=>"btn btn-secondary "%>
-      <% @comments.all.each do |comment|%>
-            <div class='card-header'>Commentaire n°<%= comment.id %></div>
-            <div class='card-body'>
-                <p class="card-text"><%= comment.content %></p>
-                <div class="card-footer text-muted">Créé le <%= comment.created_at%> par <%= comment.user.first_name %></div>
-            </div>
-        <% end %> 
+     <div class='container'>
+      <%= link_to "Ajouter un commentaire", new_comment_path, :class=>"btn btn-secondary "%>
+        <% @comments.all.each do |comment|%>
+              <div class='card-header'>Commentaire n°<%= comment.id %></div>
+              <div class='card-body'>
+                  <p class="card-text"><%= comment.content %></p>
+                  <div class="card-footer text-muted">Créé le <%= comment.created_at%> par <%= comment.user.first_name %><%= link_to "edit", edit_comment_path(comment.id), :class=>'btn btn-light'%> <%= link_to("Supprimer", gossip_path, method: :delete, :class=>'btn btn-danger', data: { confirm: "êtes-vous sûr de vouloir supprimer ce gossip?" })%></div>
+              </div>
+          <% end %> 
+      </div>
 
   </body>
 
