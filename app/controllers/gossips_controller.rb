@@ -1,5 +1,7 @@
 class GossipsController < ApplicationController
-  
+  before_action :authenticate_user, except: [:index]
+  before_action :authenticate_creator, only: [:edit, :update, :destroy]
+
   def index
     @gossips=Gossip.all 
   end
@@ -15,7 +17,7 @@ class GossipsController < ApplicationController
   end
 
   def create
-    @gossip = Gossip.new(user:User.last, title: params[:title], content: params[:content])
+    @gossip = Gossip.new(user:current_user, title: params[:title], content: params[:content])
     if @gossip.save
       redirect_to gossip_path(@gossip.id)
     else
@@ -46,6 +48,20 @@ class GossipsController < ApplicationController
   private
   def gossip_params
     gossip_params=params.require(:gossip).permit(:title, :content)
+  end 
+
+  def authenticate_user
+    unless current_user
+      flash[:danger] = "Please log in."
+      redirect_to new_session_path
+    end
+  end
+
+  def authenticate_creator
+    unless current_user== Gossip.find(params[:id]).user
+      flash[:danger] = "Please log in."
+      redirect_to root_path
+    end 
   end 
 
   

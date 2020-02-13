@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+    before_action :authenticate_creator, only: [:edit, :update, :destroy]
+
     def index
         @comments=Comment.all 
     end
@@ -12,7 +14,7 @@ class CommentsController < ApplicationController
     end
 
     def create
-        @comment = Comment.new(user:User.last, content: params[:content], gossip_id: params[:gossip])
+        @comment = Comment.new(user:current_user, content: params[:content], gossip_id: params[:gossip])
         puts @comment.user
         if @comment.save
             redirect_to gossip_path(@comment.gossip.id)
@@ -45,5 +47,13 @@ class CommentsController < ApplicationController
     def comment_params
         comment_params=params.require(:comment).permit(:content)
     end
+
+    def authenticate_creator
+        unless current_user== Comment.find(params[:id]).user
+          flash[:danger] = "Please log in."
+          redirect_to root_path
+        end 
+      end 
+    
     
 end 
