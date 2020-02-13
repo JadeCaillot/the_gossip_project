@@ -12,10 +12,10 @@ class CommentsController < ApplicationController
     end
 
     def create
-        @comment = Comment.new(user:User.last, content: params[:content], gossip: Gossip.find(params[:gossip]))
+        @comment = Comment.new(user:User.last, content: params[:content], gossip_id: params[:gossip])
         puts @comment.user
         if @comment.save
-            redirect_to gossips_path
+            redirect_to gossip_path(@comment.gossip.id)
         else
             puts "Ca n'a pas fonctionné désolé"
             render :new
@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
     def update
         @comment=Comment.find(params[:id])
         if @comment.update(comment_params)
-            redirect_to gossips_path
+            redirect_to gossip_path(@comment.gossip.id)
         else
             render :edit
         end 
@@ -38,7 +38,7 @@ class CommentsController < ApplicationController
     def destroy
         @comment=Comment.find(params[:id])
         @comment.destroy
-        redirect_to gossips_path
+        redirect_to gossip_path(@comment.gossip.id)
     end 
 
     private

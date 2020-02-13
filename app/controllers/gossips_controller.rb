@@ -7,6 +7,7 @@ class GossipsController < ApplicationController
   def show
     @gossip=Gossip.find(params[:id])
     @comments=Comment.where(gossip_id: params[:id])
+    @comment=Comment.new
   end
 
   def new
