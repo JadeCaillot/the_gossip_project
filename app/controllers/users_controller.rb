@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(first_name: params[:first_name], last_name: params[:last_name], age: params[:age], email: params[:email], description: params[:description], city:City.last, password: params[:password])
     if @user.save
       redirect_to root_path
+      flash[:success] = "Bienvenue #{@user.first_name}, je te laisse faire le tour du propriétaire !"
     else
       puts "Ca n'a pas fonctionné désolé"
       render :new

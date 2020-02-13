@@ -6,12 +6,12 @@
 
   <body>
     <div class="jumbotron">
-      <h1 class="display-4">Bienvenue <%=params["first_name"]%> sur le site du Gossip Project</h1>
+      <h1 class="display-4">Bienvenue <%=current_user.first_name%> sur le site du Gossip Project</h1>
     </div>
       
     <div class='container text-center'>
-      <p>Voici la liste de tous les potins</p><br>
-      <%= link_to "Ajouter un gossip", new_gossip_path, :class=>"btn btn-secondary btn-lg active "%>
+      <p>Voici la liste de tous les potins</p>
+      <%= link_to "Ajouter un gossip", new_gossip_path, :class=>"btn btn-secondary btn-lg active p-10"%><br>
     </div>
     <div class='card'>
       <% @gossips.all.each do |gossip|%>

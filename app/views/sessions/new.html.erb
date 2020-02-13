@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>The Gossip Project</title>
+  </head>
+
+  <body>
+    <div class="jumbotron">
+      <h1 class="display-4">Identifies-toi</h1>
+    </div>
+
+    <div class= 'container text-center'>
+        <%= form_tag(sessions_path, method: "post") do%>
+        <%= label_tag 'email' %>
+        <%= text_field_tag :email, @email %>
+        <br />
+        <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+        <%= label_tag 'password' %>
+        <%= text_field_tag :password, @password %>
+        <br />
+        <%= submit_tag 'Entrer' %>
+        <% end %>
+    </div>
+  </body>
+</html>
+
+  

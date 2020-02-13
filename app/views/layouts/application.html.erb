@@ -18,9 +18,9 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse lead" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+          <li class="nav-item active ">
             <%= link_to 'Home', root_path, :class=>'nav-link'%>
           </li>
           <li class="nav-item">
@@ -30,27 +30,34 @@
             <%= link_to 'contact', contact_path, :class=>'nav-link'%>
           </li>
         </ul>
+
+        <ul class= 'navbar-nav ml-auto'>
+          <% if current_user%>
+            <li class='nav-item p-2'>
+              <%= link_to "Se déconnecter", session_path(session.id), method: :delete, :class=>"nav-link btn btn-outline btn-lg", data: { confirm: "êtes-vous sûr de vouloir vous déconnecter ?" } %>
+            </li>
+          <% else%>
+            <li class='nav-item p-2'>
+              <%= link_to "Inscription", new_user_path, :class=>"nav-link btn btn-secondary btn-lg"%>
+            </li>
+            <li class='nav-item p-2'>
+              <%= link_to "Connexion", new_session_path, :class=>"nav-link btn btn-outline-secondary btn-lg"%>
+            </li>
+          <% end %>
+        </ul>
       </div>
     </nav>
 
-    <% if @error %>
-      <div class="alert alert-primary alert-dismissible fade show mb-3" role="alert">
-          Attention, ça n'a pas fonctionné. Vérifie pourquoi
-          <% @gossip.errors.messages.each do |message| %>
-            <%= message %>
-          <% end %>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-      </div>
-    <% elsif @create %>
-        <div class="alert alert-primary alert-dismissible fade show mb-3" role="alert">
-          Bravo, tu as créé un gossip ! 
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-    <% end %>
+  
+      <% if flash[:success] %>
+        <div class="alert alert-success d-flex text-center m-4" role="alert">Bravo!</div>
+      <%end%>
+
+      <% if flash[:danger] %>
+        <div class="alert alert-danger d-flex text-center m-4" role="alert"> Quelque chose ne va pas, essaie de nouveau</div>
+      <%end%>
+ 
+
     <%= yield %>
   </body>
 </html>
