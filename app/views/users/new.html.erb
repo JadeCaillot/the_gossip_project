@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>The Gossip Project</title>
+  </head>
+
+  <body>
+    <div class="jumbotron">
+      <h1 class="display-4">Bienvenue ! Créé ton profil en remplissant ce formulaire</h1>
+    </div>
+
+    <div class= 'container text-center'>
+        <%= form_tag(users_path, method: "post") do%>
+        <%= label_tag 'prénom' %>
+        <%= text_field_tag :first_name, @user.first_name %>
+        <br />
+        <%= label_tag 'nom de famille' %>
+        <%= text_field_tag :last_name, @user.last_name %>
+        <br />
+        <%= label_tag 'age' %>
+        <%= text_field_tag :age, @user.age %>
+        <br />
+        <%= label_tag 'description' %>
+        <%= text_field_tag :description, @user.description %>
+        <br />
+        <%= label_tag 'email' %>
+        <%= text_field_tag :email, @user.email %>
+        <br />
+        <%= label_tag 'ville' %>
+        <%= text_field_tag :city, @user.city %>
+        <br />
+        <%= label_tag 'password' %>
+        <%= text_field_tag :password, @user.password %>
+        <br />
+          
+        <%= submit_tag 'Add Gossip' %>
+        <% end %>
+    </div>
+  </body>
+</html>
+
+  
