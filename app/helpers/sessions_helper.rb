@@ -25,7 +25,7 @@ module SessionsHelper
       
         #  maintenant, je vais créer les cookies : un cookie qui va conserver l'user_id, et un autre qui va enregistrer le remember_token
         cookies.permanent[:user_id] = user.id
-        cookies.permanent[:remember_token] = user.remember_token      
+        cookies.permanent[:remember_token] = remember_token      
     end
     
     def forget(user)

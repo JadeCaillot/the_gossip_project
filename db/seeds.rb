@@ -24,7 +24,7 @@ Like.destroy_all
   City.create(name: Faker::Address.unique.city, zip_code: Faker::Address.unique.zip_code)
 end
 10.times do
-  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::ChuckNorris.fact, age: (15..75).to_a.sample, email: Faker::Internet.unique.email(domain: 'brazzers'), city: City.all.sample)
+  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::ChuckNorris.fact, age: (15..75).to_a.sample, email: Faker::Internet.unique.email(domain: 'gmail'), city: City.all.sample, password: "1234")
 end
 20.times do
   Gossip.create(user: User.all.sample, title: Faker::TvShows::SouthPark.character, content: Faker::TvShows::SouthPark.quote)

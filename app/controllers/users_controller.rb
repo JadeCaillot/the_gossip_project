@@ -15,8 +15,8 @@ class UsersController < ApplicationController
     @user = User.new(first_name: params[:first_name], last_name: params[:last_name], age: params[:age], email: params[:email], description: params[:description], city:City.last, password: params[:password])
     if @user.save
       redirect_to root_path
-      flash[:success] = "Bienvenue #{user.first_name}, je te laisse faire le tour du propriétaire !"
-      log_in(user)
+      flash[:success] = "Bienvenue #{current_user.first_name}, je te laisse faire le tour du propriétaire !"
+      log_in user
       remember(user)
     else
       puts "Ca n'a pas fonctionné désolé"
@@ -31,6 +31,7 @@ class UsersController < ApplicationController
   def update
     @user=User.find(params[:id])
     if @user.update(user_params)
+      log_in(user)
       redirect_to root_path
     else
       render :edit
