@@ -24,3 +24,10 @@ p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
 }
+
+.jumbotron {
+    background-image: url(https://i.pinimg.com/originals/2b/49/5e/2b495e6111dcb80e3cf28d5b87918cbe.jpg);
+    color: white;
+    margin:auto;
+    height:350px;
+}

@@ -8,21 +8,20 @@
    <div class="jumbotron">
     <h1 class="display-4">Bienvenue sur l'explorateur de Gossips</h1>
    </div>
-    <div class="card text-center">
-    <div class="card-header">Potin n°<%=params[:id]%></div> 
-
-      <div class="card-body">
-        <h5 class="card-title">Titre du potin : <%= @gossip.title%></h5>
-        <p class="card-text">Contenu du potin : <%= @gossip.content %></p>
-        <p class="card-text">Auteur: <%= link_to "#{@gossip.user.first_name}", user_path(@id = @gossip.user.id), :class=>'btn btn-primary bg-info'%></p>
-      <div class="card-footer text-muted">Créé le <%= @gossip.created_at%></div>
-  
-
-    </div>
+   <div class='container'>
+      <div class="card text-center">
+        <div class="card-header bg-light">Potin n°<%=params[:id]%></div> 
+        <div class="card">
+          <h5 class="card-title">Titre du potin : <%= @gossip.title%></h5>
+          <h6 class="card-text">Contenu du potin : <%= @gossip.content %></h6>
+          <h6 class="card-text">Auteur: <%= link_to "#{@gossip.user.first_name}", user_path(@id = @gossip.user.id), :class=>'btn btn-outline p-0'%></h6>
+          <div class="card-footer text-muted">Créé le <%= @gossip.created_at%></div>
+      </div>
+    </div> <br>
     
     <h2 class='text-center'>Commentaires</h2>
     <div class='container'>
-      <%= link_to "Ajouter un commentaire", new_comment_path, :class=>"btn btn-secondary"%>
+      <%= link_to "Ajouter un commentaire", new_comment_path, :class=>"btn btn-secondary d-flex justify-content-center"%>
         <% @comments.all.each do |comment|%>
               <div class='card-header'>Commentaire n°<%= comment.id %></div>
               <div class='card-body'>
