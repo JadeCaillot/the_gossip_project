@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
     before_action :authenticate_creator, only: [:edit, :update, :destroy]
+    before_action :authenticate_user, except: [:index]
 
     def index
         @comments=Comment.all 
@@ -50,10 +51,18 @@ class CommentsController < ApplicationController
 
     def authenticate_creator
         unless current_user== Comment.find(params[:id]).user
-          flash[:danger] = "Please log in."
-          redirect_to root_path
+            flash[:danger] = "Oops! Tu dois être l'auteur du commentaire pour faire cela"
+            redirect_to root_path
         end 
-      end 
-    
+    end 
+
+
+    def authenticate_user
+        unless current_user
+            flash[:danger] = "Oops! Tu dois être connecté pour faire cela"
+            redirect_to new_session_path
+        end
+    end
+        
     
 end 

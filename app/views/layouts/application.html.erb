@@ -49,14 +49,11 @@
     </nav>
 
   
-      <% if flash[:success] %>
-        <div class="alert alert-success d-flex text-center m-4" role="alert">Bravo!</div>
+
+      <% flash.each do |name, message|%>
+       <div class="alert alert-<%=name%>%"><%=message%></div>
       <%end%>
 
-      <% if flash[:danger] %>
-        <div class="alert alert-danger d-flex text-center m-4" role="alert"> Quelque chose ne va pas</div>
-      <%end%>
- 
 
     <%= yield %>
   </body>

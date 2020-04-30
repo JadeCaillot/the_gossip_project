@@ -52,14 +52,14 @@ class GossipsController < ApplicationController
 
   def authenticate_user
     unless current_user
-      flash[:danger] = "Please log in."
+      flash[:danger] = "Oops! Tu dois être connecté pour faire cela"
       redirect_to new_session_path
     end
   end
 
   def authenticate_creator
     unless current_user== Gossip.find(params[:id]).user
-      flash[:danger] = "Please log in."
+      flash[:danger] = "Oops! Tu dois être connecté pour faire cela"
       redirect_to root_path
     end 
   end 
